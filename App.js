@@ -1,13 +1,14 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import React from 'react';
+import { Searchbar } from 'react-native-paper';
 import { StatusBar, StyleSheet, Text, SafeAreaView, View } from 'react-native';
 
 export default function App() {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <View style={styles.viewContainer}>
-          <Text>Search</Text>
+        <View style={styles.search}>
+          <Searchbar />
         </View>
         <View style={styles.listContainer}>
           <Text>List</Text>
@@ -23,9 +24,8 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight,
   },
-  viewContainer: {
+  search: {
     padding: 16,
-    backgroundColor: 'green',
   },
   listContainer: {
     flex: 1,

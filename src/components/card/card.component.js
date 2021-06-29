@@ -1,26 +1,17 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+// import { StyleSheet } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper';
+import { CardCover, CardStyle } from './card.styles';
 
 export const CardAppComponent = ({ restaurantData }) => {
   const { address, name, photos } = restaurantData.props;
   return (
-    <Card elevation={5} style={styles.card}>
-      <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
+    <CardStyle elevation={5}>
+      <CardCover key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <Title>{name}</Title>
         <Paragraph>{address}</Paragraph>
       </Card.Content>
-    </Card>
+    </CardStyle>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: 'white',
-  },
-  cover: {
-    padding: 20,
-    backgroundColor: 'white',
-  },
-});

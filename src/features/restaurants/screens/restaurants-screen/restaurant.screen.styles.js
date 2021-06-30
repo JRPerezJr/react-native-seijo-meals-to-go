@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { StatusBar, SafeAreaView, View } from 'react-native';
 
-const bar = StatusBar.currentHeight;
+// export const StyledSafeAreaView = styled(SafeAreaView)`
+//   flex: 1;
+//   margin-top: ${StatusBar.currentHeight}px;
+// `;
 
 export const StyledSafeAreaView = styled(SafeAreaView)({
   flex: 1,
-  marginTop: bar,
+  marginTop: StatusBar.currentHeight,
 });
 
 export const StyledSearchbarView = styled(View)`

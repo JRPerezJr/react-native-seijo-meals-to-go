@@ -1,8 +1,7 @@
 import React from 'react';
-// import { Text } from 'react-native';
 import { CardAppComponent } from '../card/card.component';
 
-export const RestaurantInfo = ({ restaurant = {} }) => {
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = 'The Tasty Moose',
     icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',

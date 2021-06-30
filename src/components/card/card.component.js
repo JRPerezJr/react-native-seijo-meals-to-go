@@ -10,9 +10,10 @@ import {
   Rating,
   Section,
   SectionEnd,
-  StyledView,
   StyledImage,
 } from './card.styles';
+
+import { Spacer } from '../../components/spacer/spacer.component';
 
 import { Star } from '../../../assets/star';
 import { OpenIcon } from '../../../assets/open';
@@ -45,10 +46,12 @@ export const CardAppComponent = ({ restaurantData }) => {
             {isClosedTemporarily && (
               <StyledText variant="label">CLOSED TEMPORARILY</StyledText>
             )}
-            <StyledView />
-            {isOpenNow && <OpenIcon />}
-            <StyledView />
-            <StyledImage source={{ uri: icon }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <OpenIcon />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <StyledImage source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <StyledParagraph>{address}</StyledParagraph>

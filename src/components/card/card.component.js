@@ -1,6 +1,6 @@
-import * as React from 'react';
-// import { StyleSheet } from 'react-native';
-import { Card, Paragraph } from 'react-native-paper';
+import React from 'react';
+import { Card } from 'react-native-paper';
+
 import {
   StyledCardCover,
   StyledCardStyle,
@@ -8,6 +8,7 @@ import {
   StyledParagraph,
 } from './card.styles';
 
+import { Star } from '../../../assets/star';
 export const CardAppComponent = ({ restaurantData }) => {
   const { address, name, photos } = restaurantData.props;
   return (
@@ -15,6 +16,7 @@ export const CardAppComponent = ({ restaurantData }) => {
       <StyledCardCover key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <StyledTitle>{name}</StyledTitle>
+        <Star />
         <StyledParagraph>{address}</StyledParagraph>
       </Card.Content>
     </StyledCardStyle>

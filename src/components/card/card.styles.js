@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import { Card, Title, Paragraph } from 'react-native-paper';
-import { Image, View, Text } from 'react-native';
+import { Image, View } from 'react-native';
 
 export const StyledCardStyle = styled(Card)`
   background-color: ${props => props.theme.colors.bg.primary};
@@ -13,10 +13,6 @@ export const StyledCardCover = styled(Card.Cover)`
 
 export const StyledTitle = styled(Title)`
   font-family: ${props => props.theme.fonts.heading};
-`;
-
-export const StyledText = styled(Text)`
-  color: red;
 `;
 
 export const StyledParagraph = styled(Paragraph)`
@@ -44,7 +40,7 @@ export const StyledView = styled(View)`
   padding-left: ${props => props.theme.space[2]};
 `;
 
-export const StyledImage = styled(Image)`
+export const StyledIcon = styled(Image)`
   width: 15px;
   height: 15px;
 `;

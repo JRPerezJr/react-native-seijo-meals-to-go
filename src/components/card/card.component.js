@@ -5,15 +5,15 @@ import {
   StyledCardCover,
   StyledCardStyle,
   StyledTitle,
-  StyledText,
   StyledParagraph,
   Rating,
   Section,
   SectionEnd,
-  StyledImage,
+  StyledIcon,
 } from './card.styles';
 
 import { Spacer } from '../../components/spacer/spacer.component';
+import { StyledText } from '../typography/text.component';
 
 import { Star } from '../../../assets/star';
 import { OpenIcon } from '../../../assets/open';
@@ -44,13 +44,13 @@ export const CardAppComponent = ({ restaurantData }) => {
           </Rating>
           <SectionEnd>
             {isClosedTemporarily && (
-              <StyledText variant="label">CLOSED TEMPORARILY</StyledText>
+              <StyledText variant="error">CLOSED TEMPORARILY</StyledText>
             )}
             <Spacer position="left" size="large">
               {isOpenNow && <OpenIcon />}
             </Spacer>
             <Spacer position="left" size="large">
-              <StyledImage source={{ uri: icon }} />
+              <StyledIcon source={{ uri: icon }} />
             </Spacer>
           </SectionEnd>
         </Section>

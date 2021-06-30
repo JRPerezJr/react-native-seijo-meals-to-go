@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { Image, View, Text } from 'react-native';
 

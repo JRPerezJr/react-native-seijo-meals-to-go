@@ -5,7 +5,7 @@ import { CardAppComponent } from '../card/card.component';
 export const RestaurantInfo = ({ restaurant = {} }) => {
   const {
     name = 'The Tasty Moose',
-    icon = 'some icon',
+    icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
     photos = [
       'https://weneedfun.com/wp-content/uploads/2015/10/Beautiful-Food-Photos-2.jpg',
     ],

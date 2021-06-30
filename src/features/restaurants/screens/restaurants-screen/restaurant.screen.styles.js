@@ -6,11 +6,6 @@ import { StatusBar, SafeAreaView, View, FlatList } from 'react-native';
 //   margin-top: ${StatusBar.currentHeight}px;
 // `;
 
-export const StyledSafeAreaView = styled(SafeAreaView)({
-  flex: 1,
-  marginTop: StatusBar.currentHeight,
-});
-
 export const StyledSearchbarView = styled(View)`
   padding: ${props => props.theme.space[3]};
 `;

@@ -3,13 +3,13 @@ import React from 'react';
 import { Searchbar } from 'react-native-paper';
 
 import {
-  StyledSafeAreaView,
   StyledSearchbarView,
   RestaurantList,
 } from './restaurant.screen.styles';
 
 import { RestaurantInfoCard } from '../../../../components/restaurant-info-card/restaurant-info-card';
 import { Spacer } from '../../../../components/spacer/spacer.component';
+import { StyledSafeAreaView } from '../../../../components/utilities/safe-area.component';
 
 export const RestaurantsScreen = () => {
   return (

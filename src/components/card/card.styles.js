@@ -2,8 +2,9 @@ import styled from 'styled-components/native';
 import { Card, Title, Paragraph } from 'react-native-paper';
 import { Image, View } from 'react-native';
 
-export const StyledCardStyle = styled(Card)`
+export const StyledCard = styled(Card)`
   background-color: ${props => props.theme.colors.bg.primary};
+  margin-bottom: ${props => props.theme.space[3]};
 `;
 
 export const StyledCardCover = styled(Card.Cover)`

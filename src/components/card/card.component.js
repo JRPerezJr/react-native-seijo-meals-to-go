@@ -3,7 +3,7 @@ import { Card } from 'react-native-paper';
 
 import {
   StyledCardCover,
-  StyledCardStyle,
+  StyledCard,
   StyledTitle,
   StyledParagraph,
   Rating,
@@ -32,7 +32,7 @@ export const CardAppComponent = ({ restaurantData }) => {
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
   return (
-    <StyledCardStyle elevation={5}>
+    <StyledCard elevation={5}>
       <StyledCardCover key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <StyledTitle>{name}</StyledTitle>
@@ -56,6 +56,6 @@ export const CardAppComponent = ({ restaurantData }) => {
         </Section>
         <StyledParagraph>{address}</StyledParagraph>
       </Card.Content>
-    </StyledCardStyle>
+    </StyledCard>
   );
 };

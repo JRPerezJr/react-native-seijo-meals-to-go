@@ -12,7 +12,7 @@ export const restaurantsRequest = async (
   }
 };
 
-const restaurantsTransform = ({ results = [] }) => {
+export const restaurantsTransform = ({ results = [] }) => {
   const mappedResults = results.map(restaurant => {
     return {
       ...restaurant,

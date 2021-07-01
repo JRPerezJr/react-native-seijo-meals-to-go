@@ -8,7 +8,7 @@ export const restaurantsRequest = async (
     const mock = await mocks[location];
     return mock;
   } catch (error) {
-    console.log(error);
+    console.log('Not found');
   }
 };
 

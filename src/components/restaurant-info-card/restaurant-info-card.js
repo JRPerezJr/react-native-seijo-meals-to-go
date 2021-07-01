@@ -8,7 +8,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     photos = [
       'https://weneedfun.com/wp-content/uploads/2015/10/Beautiful-Food-Photos-2.jpg',
     ],
-    address = '1234 Any St. Any Town, USA',
+    vicinity = '1234 Any St. Any Town, USA',
     isOpenNow = true,
     rating = '5',
     isClosedTemporarily = true,
@@ -21,7 +21,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             name,
             icon,
             photos,
-            address,
+            vicinity,
             isOpenNow,
             rating,
             isClosedTemporarily,

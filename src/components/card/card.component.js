@@ -20,7 +20,7 @@ import { OpenIcon } from '../../../assets/open';
 
 export const CardAppComponent = ({ restaurantData }) => {
   const {
-    address,
+    vicinity,
     icon,
     isClosedTemporarily,
     isOpenNow,
@@ -54,7 +54,7 @@ export const CardAppComponent = ({ restaurantData }) => {
             </Spacer>
           </SectionEnd>
         </Section>
-        <StyledParagraph>{address}</StyledParagraph>
+        <StyledParagraph>{vicinity}</StyledParagraph>
       </Card.Content>
     </StyledCard>
   );

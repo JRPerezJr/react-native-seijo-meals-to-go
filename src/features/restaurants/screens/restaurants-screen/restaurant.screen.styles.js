@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { StatusBar, SafeAreaView, View, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 // export const StyledSafeAreaView = styled(SafeAreaView)`
 //   flex: 1;

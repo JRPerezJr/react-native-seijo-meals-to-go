@@ -12,6 +12,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     rating = '5',
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
   return (
     <>
@@ -25,6 +26,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             isOpenNow,
             rating,
             isClosedTemporarily,
+            placeId,
           },
         }}
       />

@@ -27,6 +27,7 @@ export const CardAppComponent = ({ restaurantData }) => {
     name,
     photos,
     rating,
+    placeId,
   } = restaurantData.props;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -38,8 +39,8 @@ export const CardAppComponent = ({ restaurantData }) => {
         <StyledTitle>{name}</StyledTitle>
         <Section>
           <Rating>
-            {ratingArray.map(() => (
-              <Star />
+            {ratingArray.map((_, i) => (
+              <Star key={`star-${placeId}-${i}`} />
             ))}
           </Rating>
           <SectionEnd>

@@ -1,7 +1,14 @@
 import { Image, View } from 'react-native';
+import { WebView } from 'react-native-webview';
 import styled from 'styled-components/native';
 
 export const CompactImage = styled(Image)`
+  border-radius: 10px;
+  width: 120px;
+  height: 100px;
+`;
+
+export const CompactWebView = styled(WebView)`
   border-radius: 10px;
   width: 120px;
   height: 100px;

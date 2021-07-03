@@ -1,12 +1,21 @@
 import React from 'react';
+import { Platform } from 'react-native';
 
 import { StyledText } from '../typography/text.component';
-import { CompactImage, Item } from './compact-restaurant-info.component.styles';
+import {
+  CompactImage,
+  CompactWebView,
+  Item,
+} from './compact-restaurant-info.component.styles';
+
+const isAndroid = Platform.OS === 'android';
 
 export const CompactRestaurantInfo = ({ restaurant }) => {
+  const Image = isAndroid ? CompactWebView : CompactImage;
+
   return (
     <Item>
-      <CompactImage source={{ uri: restaurant.photos[0] }} />
+      <Image source={{ uri: restaurant.photos[0] }} />
       <StyledText center variant="caption" numberOfLines={3}>
         {restaurant.name}
       </StyledText>

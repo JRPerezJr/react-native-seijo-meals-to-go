@@ -21,8 +21,9 @@ import { theme } from './src/infrastructure/theme';
 import { RestaurantsScreen } from './src/features/restaurants/screens/restaurants-screen/restaurants.screen';
 import { MapScreen } from './src/features/restaurants/screens/map-screen/map-screen';
 import { SettingsScreen } from './src/features/restaurants/screens/settings-screen/settings-screen';
-import { RestaurantsContextProvider } from './src/services/restaurants/mock/restaurants.context';
+
 import { LocationContextProvider } from './src/services/location/location.context';
+import { RestaurantsContextProvider } from './src/services/restaurants/mock/restaurants.context';
 
 const Tab = createBottomTabNavigator();
 

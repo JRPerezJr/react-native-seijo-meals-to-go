@@ -13,6 +13,7 @@ import { RestaurantInfoCard } from '../../../../components/restaurant-info-card/
 import { Spacer } from '../../../../components/spacer/spacer.component';
 import { StyledSafeAreaView } from '../../../../components/utilities/safe-area.component';
 import { RestaurantsContext } from '../../../../services/restaurants/mock/restaurants.context';
+import { AppSearchBar } from '../../components/search/search.component';
 
 export const RestaurantsScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
@@ -20,9 +21,7 @@ export const RestaurantsScreen = () => {
   return (
     <>
       <StyledSafeAreaView>
-        <StyledSearchbarView>
-          <Searchbar />
-        </StyledSearchbarView>
+        <AppSearchBar />
         {isLoading ? (
           <LoadingContainer>
             <Loading />
@@ -31,7 +30,6 @@ export const RestaurantsScreen = () => {
           <RestaurantList
             data={restaurants}
             renderItem={({ item }) => {
-              console.log(item);
               return (
                 <>
                   <Spacer position="bottom" size="large">

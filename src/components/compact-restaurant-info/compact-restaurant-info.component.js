@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { StyledText } from '../typography/text.component';
 import { CompactImage, Item } from './compact-restaurant-info.component.styles';
 

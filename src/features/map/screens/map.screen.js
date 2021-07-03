@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MapView from 'react-native-maps';
+
 import { LocationContext } from '../../../services/location/location.context';
 import { RestaurantsContext } from '../../../services/restaurants/mock/restaurants.context';
+
 import { MapCallout } from '../components/map-callout/map-callout.component';
 import { AppSearchBar } from '../components/search/search.component';
 

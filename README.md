@@ -93,7 +93,7 @@ yarn web
 npm run web
 ```
 
-## ⚙️ Lint
+## 🧹 Lint
 
 ```shell
 yarn lint

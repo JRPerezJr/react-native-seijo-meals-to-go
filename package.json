@@ -1,4 +1,16 @@
 {
+  "name": "seijo-meals-to-go",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Juan Perez Jr.",
+  "license": "MIT",
+  "description": "A React Native restaurant application",
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.13",
+    "yarn": "1.22.10"
+  },
+  "repository": "https://github.com/JRPerezJr/react-native-seijo-meals-to-go",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -38,6 +50,5 @@
     "@react-native-community/eslint-config": "^3.0.0",
     "eslint": "^7.29.0",
     "prettier": "^2.3.2"
-  },
-  "private": true
+  }
 }

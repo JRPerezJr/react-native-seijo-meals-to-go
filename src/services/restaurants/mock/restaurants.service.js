@@ -1,9 +1,7 @@
 import { mockImages, mocks } from './index';
 import camelize from 'camelize';
 
-export const restaurantsRequest = async (
-  location = '37.7749295,-122.4194155'
-) => {
+export const restaurantsRequest = async location => {
   try {
     const mock = await mocks[location];
     return mock;

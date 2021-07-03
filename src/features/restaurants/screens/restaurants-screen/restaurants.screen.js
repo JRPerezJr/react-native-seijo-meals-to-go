@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import { TouchableOpacity } from 'react-native';
+
 import {
   RestaurantList,
   Loading,
@@ -13,7 +15,7 @@ import { AppSearchBar } from '../../components/search/search.component';
 import { Spacer } from '../../../../components/spacer/spacer.component';
 import { RestaurantInfoCard } from '../../../../components/restaurant-info-card/restaurant-info-card';
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
 
   return (
@@ -29,11 +31,13 @@ export const RestaurantsScreen = () => {
             data={restaurants}
             renderItem={({ item }) => {
               return (
-                <>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('RestaurantDetail')}
+                >
                   <Spacer position="bottom" size="large">
                     <RestaurantInfoCard restaurant={item} />
                   </Spacer>
-                </>
+                </TouchableOpacity>
               );
             }}
             keyExtractor={item => item.name}

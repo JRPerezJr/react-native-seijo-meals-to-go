@@ -9,7 +9,6 @@ import {
 } from './restaurant.screen.styles';
 
 import { RestaurantsContext } from '../../../../services/restaurants/mock/restaurants.context';
-import { FavoritesContext } from '../../../../services/favorites/favorites.content';
 
 import { StyledSafeAreaView } from '../../../../components/utilities/safe-area.component';
 import { AppSearchBar } from '../../components/search/search.component';
@@ -18,7 +17,6 @@ import { RestaurantInfoCard } from '../../components/restaurant-info-card/restau
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
-  const { favorites } = useContext(FavoritesContext);
 
   return (
     <>

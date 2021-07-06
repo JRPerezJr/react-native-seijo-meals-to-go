@@ -10,7 +10,5 @@ export const FavoriteButton = styled(TouchableOpacity)`
 `;
 
 export const AntDesignIcon = styled(AntDesign).attrs({
-  name: 'heart',
   size: 24,
-  color: 'red',
 })``;

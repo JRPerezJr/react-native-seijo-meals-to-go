@@ -17,9 +17,9 @@ import { StyledText } from '../../../../components/typography/text.component';
 
 import { Star } from '../../../../../assets/star';
 import { OpenIcon } from '../../../../../assets/open';
-import { Favorite } from '../favorites/favorite.component';
+import { Favorite } from '../../../../components/favorites/favorite.component';
 
-export const CardAppComponent = ({ restaurant }) => {
+export const CardAppComponent = ({ restaurant, ratingArray }) => {
   const {
     address,
     icon,
@@ -27,15 +27,12 @@ export const CardAppComponent = ({ restaurant }) => {
     isOpenNow,
     name,
     photos,
-    rating,
     placeId,
   } = restaurant.props;
 
-  const ratingArray = Array.from(new Array(Math.floor(rating)));
-
   return (
     <StyledCard elevation={5}>
-      <Favorite restaurant={restaurant} />
+      <Favorite restaurant={restaurant.props} />
       <StyledCardCover key={name} source={{ uri: photos[0] }} />
       <Card.Content>
         <StyledTitle>{name}</StyledTitle>

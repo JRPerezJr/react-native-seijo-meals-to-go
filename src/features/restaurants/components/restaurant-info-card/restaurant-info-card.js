@@ -14,9 +14,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isClosedTemporarily = true,
     placeId,
   } = restaurant;
+
+  const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <>
       <CardAppComponent
+        ratingArray={ratingArray}
         restaurant={{
           props: {
             name,

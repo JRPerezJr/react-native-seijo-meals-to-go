@@ -17,7 +17,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   return (
     <>
       <CardAppComponent
-        restaurantData={{
+        restaurant={{
           props: {
             name,
             icon,

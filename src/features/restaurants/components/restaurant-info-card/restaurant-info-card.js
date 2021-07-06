@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardAppComponent } from '../card';
+import { CardAppComponent } from '../card/card.component';
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {

@@ -4,8 +4,8 @@ import { AntDesign } from '@expo/vector-icons';
 
 export const FavoriteButton = styled(TouchableOpacity)`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 25px;
+  right: 25px;
   z-index: 9;
 `;
 

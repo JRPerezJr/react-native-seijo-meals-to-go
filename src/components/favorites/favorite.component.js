@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { FavoriteButton, AntDesignIcon } from './favorites.styles';
 
-import { FavoritesContext } from '../../services/favorites/favorites.content';
+import { FavoritesContext } from '../../services/favorites/favorites.context';
 
 export const Favorite = ({ restaurant }) => {
   const { favorites, addToFavorites, removeFromFavorites } =

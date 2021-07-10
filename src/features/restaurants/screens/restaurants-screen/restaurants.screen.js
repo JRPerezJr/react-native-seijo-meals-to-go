@@ -9,7 +9,7 @@ import {
 } from './restaurant.screen.styles';
 
 import { RestaurantsContext } from '../../../../services/restaurants/mock/restaurants.context';
-import { FavoritesContext } from '../../../../services/favorites/favorites.content';
+import { FavoritesContext } from '../../../../services/favorites/favorites.context';
 
 import { StyledSafeAreaView } from '../../../../components/utilities/safe-area.component';
 import { AppSearchBar } from '../../components/search/search.component';

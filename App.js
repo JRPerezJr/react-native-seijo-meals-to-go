@@ -16,7 +16,7 @@ import { LocationContextProvider } from './src/services/location/location.contex
 import { RestaurantsContextProvider } from './src/services/restaurants/mock/restaurants.context';
 
 import { Navigation } from './src/infrastructure/navigation';
-import { FavoritesContextProvider } from './src/services/favorites/favorites.content';
+import { FavoritesContextProvider } from './src/services/favorites/favorites.context';
 
 export default function App() {
   const [oswaldLoaded] = useOswald({

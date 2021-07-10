@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { TouchableOpacity } from 'react-native';
 
@@ -9,19 +9,32 @@ import {
 } from './restaurant.screen.styles';
 
 import { RestaurantsContext } from '../../../../services/restaurants/mock/restaurants.context';
+import { FavoritesContext } from '../../../../services/favorites/favorites.content';
 
 import { StyledSafeAreaView } from '../../../../components/utilities/safe-area.component';
 import { AppSearchBar } from '../../components/search/search.component';
+import { FavoritesBar } from '../../../../components/favorites/favorites-bar/favorites-bar.component';
 import { Spacer } from '../../../../components/spacer/spacer.component';
 import { RestaurantInfoCard } from '../../components/restaurant-info-card/restaurant-info-card';
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
+  const { favorites } = useContext(FavoritesContext);
+  const [isToggled, setIsToggled] = useState(false);
 
   return (
     <>
       <StyledSafeAreaView>
-        <AppSearchBar />
+        <AppSearchBar
+          isFavoritesToggled={isToggled}
+          onFavoritesToggle={() => setIsToggled(!isToggled)}
+        />
+        {isToggled && (
+          <FavoritesBar
+            favorites={favorites}
+            onNavigate={navigation.navigate}
+          />
+        )}
         {isLoading ? (
           <LoadingContainer>
             <Loading />

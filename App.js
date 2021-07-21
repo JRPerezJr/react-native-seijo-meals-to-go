@@ -1,6 +1,6 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import {
   useFonts as useOswald,
@@ -20,10 +20,6 @@ import { RestaurantsContextProvider } from './src/services/restaurants/mock/rest
 import { Navigation } from './src/infrastructure/navigation';
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {}, []);
-
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });

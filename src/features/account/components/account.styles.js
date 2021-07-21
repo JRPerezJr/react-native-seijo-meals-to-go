@@ -1,6 +1,6 @@
 import { ImageBackground, View } from 'react-native';
 
-import { Button } from 'react-native-paper';
+import { Button, TextInput } from 'react-native-paper';
 import styled from 'styled-components';
 import { colors } from '../../../infrastructure/theme/colors';
 
@@ -26,9 +26,14 @@ export const AccountContainer = styled(View)`
 `;
 
 export const AuthButton = styled(Button).attrs({
-  icon: 'lock-open-outline',
   color: colors.brand.primary,
   mode: 'contained',
 })`
   padding: ${props => props.theme.space[2]};
+`;
+
+export const AuthInput = styled(TextInput).attrs({
+  autoCapitalize: 'none',
+})`
+  width: 300px;
 `;

@@ -1,5 +1,5 @@
-import firebase from '../../firebase/firebase.utils';
+import { auth } from '../../firebase/firebase.utils';
 
 export const loginRequest = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password);
+  auth.signInWithEmailAndPassword(email, password);
 };

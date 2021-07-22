@@ -7,7 +7,7 @@ export const AuthenticationContext = createContext();
 export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
-  const [firebaseError, setFirebaseError] = useState(null);
+  const [validationError, setValidationError] = useState(null);
 
   const onLogin = (email, password) => {
     setIsLoading(true);
@@ -20,10 +20,10 @@ export const AuthenticationContextProvider = ({ children }) => {
       .catch(error => {
         setIsLoading(false);
         if (error.code === 'auth/invalid-email') {
-          setFirebaseError('Incorrect email or password');
+          setValidationError('Incorrect email or password');
         }
         if (error.code === 'auth/wrong-password') {
-          setFirebaseError('Incorrect email or password');
+          setValidationError('Incorrect email or password');
         }
       });
   };
@@ -34,7 +34,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         isAuthenticated: !!user,
         user,
         isLoading,
-        firebaseError,
+        validationError,
         onLogin,
       }}
     >

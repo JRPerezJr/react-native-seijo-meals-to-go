@@ -16,7 +16,7 @@ import { AuthenticationContext } from '../../../../services/authentication/authe
 export const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { onLogin, firebaseError } = useContext(AuthenticationContext);
+  const { onLogin, validationError } = useContext(AuthenticationContext);
 
   return (
     <AccountBackground>
@@ -39,9 +39,9 @@ export const LoginScreen = () => {
             onChangeText={p => setPassword(p)}
           />
         </Spacer>
-        {firebaseError && (
+        {validationError && (
           <Spacer size="large">
-            <StyledText variant="error">{firebaseError}</StyledText>
+            <StyledText variant="error">{validationError}</StyledText>
           </Spacer>
         )}
         <Spacer size="large">

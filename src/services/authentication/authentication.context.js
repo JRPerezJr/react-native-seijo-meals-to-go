@@ -3,6 +3,7 @@ import React, { useState, createContext } from 'react';
 import {
   getCurrentUser,
   loginRequest,
+  logoutRequest,
   registerUser,
 } from './authentication.service';
 
@@ -72,7 +73,7 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   const onLogout = () => {
     setUser(null);
-    loginRequest();
+    logoutRequest();
   };
 
   return (

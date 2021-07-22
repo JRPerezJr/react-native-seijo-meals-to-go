@@ -1,33 +1,40 @@
 import React, { useState, createContext } from 'react';
-// import firebase from '../../firebase/firebase.utils';
 
 import { loginRequest } from './authentication.service';
 
 export const AuthenticationContext = createContext();
 
 export const AuthenticationContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+  const [firebaseError, setFirebaseError] = useState(null);
 
   const onLogin = (email, password) => {
     setIsLoading(true);
+
     loginRequest(email, password)
-      .then(appUser => {
-        setUser(appUser);
+      .then(userData => {
+        setUser(userData);
         setIsLoading(false);
       })
-      .catch(err => {
+      .catch(error => {
         setIsLoading(false);
-        setError(err);
+        if (error.code === 'auth/invalid-email') {
+          setFirebaseError('Incorrect email or password');
+        }
+        if (error.code === 'auth/wrong-password') {
+          setFirebaseError('Incorrect email or password');
+        }
       });
   };
+
   return (
     <AuthenticationContext.Provider
       value={{
+        isAuthenticated: !!user,
         user,
         isLoading,
-        error,
+        firebaseError,
         onLogin,
       }}
     >

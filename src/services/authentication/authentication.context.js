@@ -1,6 +1,10 @@
 import React, { useState, createContext } from 'react';
 
-import { loginRequest, registerUser } from './authentication.service';
+import {
+  getCurrentUser,
+  loginRequest,
+  registerUser,
+} from './authentication.service';
 
 export const AuthenticationContext = createContext();
 
@@ -8,6 +12,15 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
   const [validationError, setValidationError] = useState(null);
+
+  getCurrentUser().then(usr => {
+    if (usr) {
+      setUser(usr);
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+    }
+  });
 
   const onLogin = (email, password) => {
     setIsLoading(true);
@@ -29,6 +42,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onRegister = (email, password, confirmPassword) => {
+    setIsLoading(true);
     if (password !== confirmPassword) {
       setValidationError('Passwords do not match');
       return;
@@ -56,6 +70,11 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
+  const onLogout = () => {
+    setUser(null);
+    loginRequest();
+  };
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -65,6 +84,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         validationError,
         onLogin,
         onRegister,
+        onLogout,
       }}
     >
       {children}

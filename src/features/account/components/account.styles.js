@@ -1,4 +1,4 @@
-import { ImageBackground, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 
 import { Button, TextInput } from 'react-native-paper';
 import styled from 'styled-components';
@@ -36,4 +36,17 @@ export const AuthInput = styled(TextInput).attrs({
   autoCapitalize: 'none',
 })`
   width: 300px;
+`;
+
+export const StyledTitle = styled(Text)`
+  font-size: 30px;
+  color: ${props => props.theme.colors.ui.quaternary};
+`;
+
+export const ErrorContainer = styled(View)`
+  max-width: 300px;
+  align-items: center;
+  align-self: center;
+  margin-top: ${props => props.theme.space[2]};
+  margin-bottom: ${props => props.theme.space[2]};
 `;

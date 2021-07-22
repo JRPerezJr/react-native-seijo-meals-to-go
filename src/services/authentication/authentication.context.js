@@ -52,12 +52,9 @@ export const AuthenticationContextProvider = ({ children }) => {
     registerUser(email, password, confirmPassword)
       .then(newUser => {
         setUser(newUser);
-        console.log('User account created & signed in!');
         setIsLoading(false);
       })
       .catch(error => {
-        console.log(error.code);
-        console.log(error.message);
         setIsLoading(false);
         if (error.code === 'auth/email-already-in-use') {
           setValidationError('That email address is already in use!');

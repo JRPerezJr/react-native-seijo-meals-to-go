@@ -47,7 +47,7 @@ export const CameraScreen = ({ navigation }) => {
       <CameraContainer>
         <Spacer size="large">
           <AntDesignIcon
-            name="swap"
+            name="sync"
             size={24}
             color="black"
             onPress={() => {

@@ -7,8 +7,6 @@ import { FavoritesContext } from '../../services/favorites/favorites.context';
 export const Favorite = ({ restaurant }) => {
   const { favorites, addToFavorites, removeFromFavorites } =
     useContext(FavoritesContext);
-  // console.log(favorites.length);
-  // console.log(restaurant);
 
   const isFavorite = favorites.find(r => r.placeId === restaurant.placeId);
 

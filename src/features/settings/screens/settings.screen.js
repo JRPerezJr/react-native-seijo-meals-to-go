@@ -1,7 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React, { useContext } from 'react';
-
-import { Button } from 'react-native';
 
 import { List } from 'react-native-paper';
 

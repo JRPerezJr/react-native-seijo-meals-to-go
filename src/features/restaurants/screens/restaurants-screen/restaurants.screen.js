@@ -16,6 +16,7 @@ import { AppSearchBar } from '../../components/search/search.component';
 import { FavoritesBar } from '../../../../components/favorites/favorites-bar/favorites-bar.component';
 import { Spacer } from '../../../../components/spacer/spacer.component';
 import { RestaurantInfoCard } from '../../components/restaurant-info-card/restaurant-info-card';
+import { FadeInView } from '../../../../components/animations/fade.animation';
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
@@ -52,7 +53,9 @@ export const RestaurantsScreen = ({ navigation }) => {
                   }
                 >
                   <Spacer position="bottom" size="large">
-                    <RestaurantInfoCard restaurant={item} />
+                    <FadeInView>
+                      <RestaurantInfoCard restaurant={item} />
+                    </FadeInView>
                   </Spacer>
                 </TouchableOpacity>
               );

@@ -21,3 +21,7 @@ export const Loading = styled(ActivityIndicator).attrs({
 })`
   margin-left: -25px;
 `;
+
+export const ErrorContainer = styled(View)`
+  align-items: center;
+`;

@@ -6,6 +6,7 @@ import {
   RestaurantList,
   Loading,
   LoadingContainer,
+  ErrorContainer,
 } from './restaurant.screen.styles';
 
 import { RestaurantsContext } from '../../../../services/restaurants/mock/restaurants.context';
@@ -17,11 +18,16 @@ import { FavoritesBar } from '../../../../components/favorites/favorites-bar/fav
 import { Spacer } from '../../../../components/spacer/spacer.component';
 import { RestaurantInfoCard } from '../../components/restaurant-info-card/restaurant-info-card';
 import { FadeInView } from '../../../../components/animations/fade.animation';
+import { LocationContext } from '../../../../services/location/location.context';
+import { StyledText } from '../../../../components/typography/text.component';
 
 export const RestaurantsScreen = ({ navigation }) => {
-  const { isLoading, restaurants } = useContext(RestaurantsContext);
+  const { error: locationError } = useContext(LocationContext);
+  const { isLoading, restaurants, error } = useContext(RestaurantsContext);
   const { favorites } = useContext(FavoritesContext);
   const [isToggled, setIsToggled] = useState(false);
+
+  const hasError = !!error || !!locationError;
 
   return (
     <>
@@ -36,11 +42,21 @@ export const RestaurantsScreen = ({ navigation }) => {
             onNavigate={navigation.navigate}
           />
         )}
-        {isLoading ? (
+        {isLoading && (
           <LoadingContainer>
             <Loading />
           </LoadingContainer>
-        ) : (
+        )}
+        {hasError && (
+          <Spacer position="left" size="large">
+            <ErrorContainer>
+              <StyledText variant="error">
+                Something went wrong retrieving the data
+              </StyledText>
+            </ErrorContainer>
+          </Spacer>
+        )}
+        {!hasError && (
           <RestaurantList
             data={restaurants}
             renderItem={({ item }) => {

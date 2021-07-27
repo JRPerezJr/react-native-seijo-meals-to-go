@@ -12,7 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { RestaurantsNavigator } from './restaurants.navigator';
 import { MapScreen } from '../../features/map/screens/map.screen';
 import { SettingsNavigator } from './settings.navigator';
-import { CheckoutScreen } from '../../features/checkout/checkout.screen';
+import { CheckoutScreen } from '../../features/checkout/screens/checkout.screen';
 
 const Tab = createBottomTabNavigator();
 

@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { ScrollView } from 'react-native';
 
 import { List } from 'react-native-paper';
 
+import { Spacer } from '../../../../components/spacer/spacer.component';
 import { StyledSafeAreaView } from '../../../../components/utilities/safe-area.component';
+import { CartContext } from '../../../../services/cart/cart.context';
+import { OrderButton } from '../../components/order-button/order-button.styles';
 import { RestaurantInfoCard } from '../../components/restaurant-info-card/restaurant-info-card';
 
-export const RestaurantDetailScreen = ({ route }) => {
+export const RestaurantDetailScreen = ({ navigation, route }) => {
   const [breakfastExpanded, setBreakfastExpanded] = useState(false);
   const [lunchExpanded, setLunchExpanded] = useState(false);
   const [dinnerExpanded, setDinnerExpanded] = useState(false);
   const [drinksExpanded, setDrinksExpanded] = useState(false);
 
   const { restaurant } = route.params;
+
+  const { addToCart } = useContext(CartContext);
+
   return (
     <StyledSafeAreaView>
       <RestaurantInfoCard restaurant={restaurant} />
@@ -59,6 +65,16 @@ export const RestaurantDetailScreen = ({ route }) => {
           <List.Item title="Sake" />
         </List.Accordion>
       </ScrollView>
+      <Spacer position="bottom" size="large">
+        <OrderButton
+          onPress={() => {
+            addToCart({ item: 'special', price: 1299 }, restaurant);
+            navigation.navigate('Checkout');
+          }}
+        >
+          Order Special Only 12.99!
+        </OrderButton>
+      </Spacer>
     </StyledSafeAreaView>
   );
 };

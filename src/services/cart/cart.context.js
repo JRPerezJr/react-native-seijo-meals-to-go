@@ -9,6 +9,18 @@ export const CartContextProvider = ({ children }) => {
 
   const [cart, setCart] = useState([]);
   const [restaurant, setRestaurant] = useState(null);
+  const [sum, setSum] = useState(0);
+
+  useEffect(() => {
+    if (!cart.length) {
+      setSum(0);
+      return;
+    }
+    const newSum = cart.reduce((acc, { price }) => {
+      return (acc += price);
+    }, 0);
+    setSum(newSum);
+  }, [cart]);
 
   const add = (item, rest) => {
     if (!restaurant || restaurant.placeId !== rest.placeId) {
@@ -30,6 +42,7 @@ export const CartContextProvider = ({ children }) => {
         clearCart: clearCart,
         restaurant,
         cart,
+        sum,
       }}
     >
       {children}

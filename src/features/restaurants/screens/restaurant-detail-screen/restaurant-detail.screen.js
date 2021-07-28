@@ -68,7 +68,7 @@ export const RestaurantDetailScreen = ({ navigation, route }) => {
       <Spacer position="bottom" size="large">
         <OrderButton
           onPress={() => {
-            addToCart({ item: 'special', price: 1299 }, restaurant);
+            addToCart({ item: 'Special', price: 1299 }, restaurant);
             navigation.navigate('Checkout');
           }}
         >

@@ -12,12 +12,13 @@ export const CreditCardInput = ({
   zipCode,
   country,
   onSuccess,
+  onError,
 }) => {
   const onChange = async formData => {
     const { values, status } = formData;
     const isIncomplete = Object.values(status).includes('incomplete');
-    console.log(isIncomplete);
     const expiry = values.expiry.split('/');
+
     const card = {
       number: values.number,
       exp_month: expiry[0],
@@ -31,9 +32,14 @@ export const CreditCardInput = ({
       address_zip: zipCode,
       address_country: country,
     };
+
     if (!isIncomplete) {
-      const info = await cardTokenRequest(card);
-      onSuccess(info);
+      try {
+        const info = await cardTokenRequest(card);
+        onSuccess(info);
+      } catch (err) {
+        onError();
+      }
     }
   };
   return <LiteCreditCardInput onChange={onChange} />;

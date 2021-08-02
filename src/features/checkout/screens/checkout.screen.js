@@ -15,6 +15,7 @@ import {
   CountryInput,
   NameInput,
   PayButton,
+  PaymentProcessing,
   StateInput,
   ZipCodeInput,
 } from '../components/checkout.styles';
@@ -22,6 +23,7 @@ import { StyledText } from '../../../components/typography/text.component';
 import { RestaurantInfoCard } from '../../restaurants/components/restaurant-info-card/restaurant-info-card';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { List } from 'react-native-paper';
+import { payRequest } from '../../../services/checkout/checkout.service';
 
 export const CheckoutScreen = () => {
   const { cart, restaurant, clearCart, sum } = useContext(CartContext);
@@ -33,6 +35,24 @@ export const CheckoutScreen = () => {
   const [state, setState] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [country, setCountry] = useState('');
+  const [card, setCard] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onPay = () => {
+    setIsLoading(true);
+    if (!card || !card.id) {
+      setIsLoading(false);
+      console.log('card error');
+      return;
+    }
+    payRequest(card.id, sum, name)
+      .then(result => {
+        setIsLoading(false);
+      })
+      .catch(error => {
+        setIsLoading(false);
+      });
+  };
 
   if (!cart.length || !restaurant) {
     return (
@@ -47,6 +67,7 @@ export const CheckoutScreen = () => {
   return (
     <StyledSafeAreaView>
       <RestaurantInfoCard restaurant={restaurant} />
+      {isLoading && <PaymentProcessing />}
       <ScrollView>
         <Spacer position="left" size="medium">
           <Spacer position="top" size="large">
@@ -89,13 +110,18 @@ export const CheckoutScreen = () => {
                 state={state}
                 zipCode={zipCode}
                 country={country}
+                onSuccess={setCard}
               />
             )}
         </Spacer>
         <Spacer position="top" size="xxl" />
-        <PayButton onPress={() => console.log('pay now')}>Pay</PayButton>
+        <PayButton disabled={isLoading} onPress={() => onPay()}>
+          Pay
+        </PayButton>
         <Spacer position="top" size="large">
-          <ClearButton onPress={clearCart}>Clear Cart</ClearButton>
+          <ClearButton disabled={isLoading} onPress={clearCart}>
+            Clear Cart
+          </ClearButton>
         </Spacer>
       </ScrollView>
     </StyledSafeAreaView>

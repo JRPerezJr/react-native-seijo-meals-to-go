@@ -6,12 +6,12 @@ const API_URL = 'http://localhost:8000/v1';
 
 export const cardTokenRequest = card => stripe.createToken({ card });
 
-export const payRequest = async (token, amount, name) => {
+export const payRequest = async (token, amount) => {
   try {
     return await fetch(`${API_URL}/payments`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token, amount, name }),
+      body: JSON.stringify({ token, amount }),
     });
   } catch (error) {
     return console.log('There was an issue with your payment.');

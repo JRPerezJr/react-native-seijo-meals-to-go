@@ -11,6 +11,7 @@ export const CreditCardInput = ({
   state,
   zipCode,
   country,
+  onSuccess,
 }) => {
   const onChange = async formData => {
     const { values, status } = formData;
@@ -30,8 +31,10 @@ export const CreditCardInput = ({
       address_zip: zipCode,
       address_country: country,
     };
-    const info = await cardTokenRequest(card);
-    console.log(info);
+    if (!isIncomplete) {
+      const info = await cardTokenRequest(card);
+      onSuccess(info);
+    }
   };
   return <LiteCreditCardInput onChange={onChange} />;
 };

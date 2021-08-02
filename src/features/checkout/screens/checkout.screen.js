@@ -25,7 +25,7 @@ import { Spacer } from '../../../components/spacer/spacer.component';
 import { List } from 'react-native-paper';
 import { payRequest } from '../../../services/checkout/checkout.service';
 
-export const CheckoutScreen = () => {
+export const CheckoutScreen = ({ navigation }) => {
   const { cart, restaurant, clearCart, sum } = useContext(CartContext);
 
   const [name, setName] = useState('');
@@ -42,15 +42,20 @@ export const CheckoutScreen = () => {
     setIsLoading(true);
     if (!card || !card.id) {
       setIsLoading(false);
-      console.log('card error');
+      navigation.navigate('CheckoutError', {
+        error: 'Please fill in a valid credit card',
+      });
       return;
     }
     payRequest(card.id, sum, name)
       .then(result => {
         setIsLoading(false);
+        clearCart();
+        navigation.navigate('CheckoutSuccess');
       })
       .catch(error => {
         setIsLoading(false);
+        navigation.navigate('CheckoutError', { error });
       });
   };
 

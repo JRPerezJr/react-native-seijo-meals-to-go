@@ -59,6 +59,12 @@ export const CheckoutScreen = ({ navigation }) => {
       });
   };
 
+  const onError = () => {
+    navigation.navigate('CheckoutError', {
+      error: 'Something went wrong processing your credit card',
+    });
+  };
+
   if (!cart.length || !restaurant) {
     return (
       <StyledSafeAreaView>
@@ -116,6 +122,7 @@ export const CheckoutScreen = ({ navigation }) => {
                 zipCode={zipCode}
                 country={country}
                 onSuccess={setCard}
+                onError={onError}
               />
             )}
         </Spacer>

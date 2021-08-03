@@ -31,7 +31,7 @@ export const CardAppComponent = ({ restaurant, ratingArray }) => {
   } = restaurant.props;
 
   return (
-    <StyledCard elevation={5}>
+    <StyledCard elevation={2}>
       <Favorite restaurant={restaurant.props} />
       <StyledCardCover key={name} source={{ uri: photos[0] }} />
       <Card.Content>

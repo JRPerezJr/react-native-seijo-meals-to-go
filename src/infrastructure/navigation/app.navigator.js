@@ -14,6 +14,7 @@ import { RestaurantsNavigator } from './restaurants.navigator';
 import { MapScreen } from '../../features/map/screens/map.screen';
 import { SettingsNavigator } from './settings.navigator';
 import { CheckoutNavigator } from './checkout.navigator';
+import { colors } from '../theme/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,8 +52,8 @@ export const AppNavigator = () => {
             <Tab.Navigator
               screenOptions={createScreenOptions}
               tabBarOptions={{
-                activeTintColor: 'tomato',
-                inactiveTintColor: 'gray',
+                activeTintColor: colors.brand.primary,
+                inactiveTintColor: colors.brand.muted,
               }}
             >
               <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />

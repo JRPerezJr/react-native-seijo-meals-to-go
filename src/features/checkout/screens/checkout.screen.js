@@ -22,7 +22,7 @@ import {
 import { StyledText } from '../../../components/typography/text.component';
 import { RestaurantInfoCard } from '../../restaurants/components/restaurant-info-card/restaurant-info-card';
 import { Spacer } from '../../../components/spacer/spacer.component';
-import { List } from 'react-native-paper';
+import { Divider, List } from 'react-native-paper';
 import { payRequest } from '../../../services/checkout/checkout.service';
 
 export const CheckoutScreen = ({ navigation }) => {
@@ -96,6 +96,8 @@ export const CheckoutScreen = ({ navigation }) => {
           </List.Section>
           <StyledText>Total: ${sum / 100}</StyledText>
         </Spacer>
+        <Spacer position="top" size="large" />
+        <Divider />
         <NameInput value={name} onChangeText={txt => setName(txt)} />
         <AddressInput1
           value={address1}

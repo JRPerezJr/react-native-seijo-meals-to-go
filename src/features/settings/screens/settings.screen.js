@@ -7,9 +7,14 @@ import { Avatar, List } from 'react-native-paper';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { StyledText } from '../../../components/typography/text.component';
 
-import { StyledSafeAreaView } from '../../../components/utilities/safe-area.component';
+import { colors } from '../../../infrastructure/theme/colors';
 import { AuthenticationContext } from '../../../services/authentication/authentication.context';
-import { AvatarContainer, SettingsList } from './settings.screen.styles';
+import {
+  AvatarContainer,
+  SettingsBackground,
+  SettingsList,
+  TransparentSafeArea,
+} from './settings.screen.styles';
 
 export const SettingsScreen = ({ navigation }) => {
   const { onLogout, user } = useContext(AuthenticationContext);
@@ -27,37 +32,58 @@ export const SettingsScreen = ({ navigation }) => {
   );
 
   return (
-    <StyledSafeAreaView>
-      <AvatarContainer>
-        <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
-          {!photo && (
-            <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
-          )}
-          {photo && (
-            <Avatar.Image
-              size={180}
-              source={{ uri: photo }}
-              backgroundColor="#2182BD"
-            />
-          )}
-        </TouchableOpacity>
-        <Spacer position="top" size="large">
-          <StyledText variant="label">{user.email}</StyledText>
-        </Spacer>
-      </AvatarContainer>
-      <List.Section>
-        <SettingsList
-          title="Favorites"
-          description="View your favorites"
-          left={props => <List.Icon {...props} color="black" icon="heart" />}
-          onPress={() => navigation.navigate('Favorites')}
-        />
-        <SettingsList
-          title="Logout"
-          left={props => <List.Icon {...props} color="black" icon="door" />}
-          onPress={onLogout}
-        />
-      </List.Section>
-    </StyledSafeAreaView>
+    <SettingsBackground>
+      <TransparentSafeArea>
+        <AvatarContainer>
+          <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+            {!photo && (
+              <Avatar.Icon
+                size={180}
+                icon="human"
+                backgroundColor={colors.brand.primary}
+              />
+            )}
+            {photo && (
+              <Avatar.Image
+                size={180}
+                source={{ uri: photo }}
+                backgroundColor={colors.brand.primary}
+              />
+            )}
+          </TouchableOpacity>
+          <Spacer position="top" size="large">
+            <StyledText variant="profile">{user.email}</StyledText>
+          </Spacer>
+        </AvatarContainer>
+        <List.Section>
+          <SettingsList
+            title="Favorites"
+            description="View your favorites"
+            left={props => <List.Icon {...props} color="red" icon="heart" />}
+            onPress={() => navigation.navigate('Favorites')}
+          />
+          <Spacer />
+          <SettingsList
+            title="Payments"
+            left={props => <List.Icon {...props} color="white" icon="cart" />}
+            onPress={onLogout}
+          />
+          <Spacer />
+          <SettingsList
+            title="Past Orders"
+            left={props => (
+              <List.Icon {...props} color="white" icon="history" />
+            )}
+            onPress={onLogout}
+          />
+          <Spacer />
+          <SettingsList
+            title="Logout"
+            left={props => <List.Icon {...props} color="white" icon="door" />}
+            onPress={onLogout}
+          />
+        </List.Section>
+      </TransparentSafeArea>
+    </SettingsBackground>
   );
 };

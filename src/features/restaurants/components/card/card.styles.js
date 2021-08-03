@@ -4,6 +4,8 @@ import { Image, View } from 'react-native';
 
 export const StyledCard = styled(Card)`
   background-color: ${props => props.theme.colors.bg.primary};
+  width: 95%;
+  align-self: center;
 `;
 
 export const StyledCardCover = styled(Card.Cover)`

@@ -32,12 +32,20 @@ const label = theme => `
     font-weight: ${theme.fontWeights.medium};
 `;
 
+const profile = theme => `
+  font-family: ${theme.fonts.heading};
+  font-size: ${theme.fontSizes.title};
+  font-weight: ${theme.fontWeights.bold};
+  color: ${theme.colors.text.inverse};
+`;
+
 const variants = {
   body,
   label,
   caption,
   error,
   hint,
+  profile,
 };
 
 export const StyledText = styled.Text`

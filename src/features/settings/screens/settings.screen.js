@@ -59,9 +59,24 @@ export const SettingsScreen = ({ navigation }) => {
           <SettingsList
             title="Favorites"
             description="View your favorites"
-            left={props => <List.Icon {...props} color="white" icon="heart" />}
+            left={props => <List.Icon {...props} color="red" icon="heart" />}
             onPress={() => navigation.navigate('Favorites')}
           />
+          <Spacer />
+          <SettingsList
+            title="Payments"
+            left={props => <List.Icon {...props} color="white" icon="cart" />}
+            onPress={onLogout}
+          />
+          <Spacer />
+          <SettingsList
+            title="Past Orders"
+            left={props => (
+              <List.Icon {...props} color="white" icon="history" />
+            )}
+            onPress={onLogout}
+          />
+          <Spacer />
           <SettingsList
             title="Logout"
             left={props => <List.Icon {...props} color="white" icon="door" />}

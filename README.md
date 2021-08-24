@@ -39,7 +39,7 @@
 
 ## 🎛 Configuration
 
-Create a .env file and enter your Firebase and Stripe keys.
+Create a `.env` file and enter your Firebase and Stripe keys.
 
 | Environment variable  | Description                  |
 | :-------------------- | :--------------------------- |

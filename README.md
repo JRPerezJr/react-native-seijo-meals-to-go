@@ -35,7 +35,7 @@
 
 **Client:** React Native
 
-**Cloud Server:** Firebase
+**Cloud Auth Server:** Firebase
 
 ## 🎛 Configuration
 

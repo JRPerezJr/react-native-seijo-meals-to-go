@@ -41,16 +41,16 @@
 
 Create a .env file and enter your Firebase and Stripe keys.
 
-| Environment variable | Description
-|
-|---------------------------|--------------------------------------------------|
-| `API_KEY` | Firebase API Key  
-| `AUTH_DOMAIN` | Firebase Auth Domain
-| `PROJECT_ID` | Firebase Project ID
-| `STORAGE_BUCKET` | Firebase Storage Bucket URL
-| `MESSAGING_SENDER_ID` | Firebase Messaging Sender ID
-| `APP_ID` | Application ID
-| `STRIPE_TEST_KEY` | Stripe Test Key
+| Environment variable   | Description                     |
+| :--------------------- | :------------------------------ |
+| ---------------------- | ------------------------------- |
+| `API_KEY`              | Firebase API Key                |
+| `AUTH_DOMAIN`          | Firebase Auth Domain            |
+| `PROJECT_ID`           | Firebase Project ID             |
+| `STORAGE_BUCKET`       | Firebase Storage Bucket URL     |
+| `MESSAGING_SENDER_ID`  | Firebase Messaging Sender ID    |
+| `APP_ID`               | Application ID                  |
+| `STRIPE_TEST_KEY`      | Stripe Test Key                 |
 
 ## 🛠 Install and Run Locally
 

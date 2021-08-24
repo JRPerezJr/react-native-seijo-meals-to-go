@@ -37,7 +37,7 @@
 
 **Cloud Server:** Firebase
 
-## Configuration
+## 🎛 Configuration
 
 Create a .env file and enter your Firebase and Stripe keys.
 

@@ -1,6 +1,6 @@
 <h1 align="center">Seijo Meals To Go 👋</h1>
 
-![Image of Seijo Meals To Go](https://user-images.githubusercontent.com/19915910/124355126-99be2c80-dc4a-11eb-82fb-7c57900d6fcd.png)
+![seijo-landing](https://user-images.githubusercontent.com/19915910/132099478-cf9f43ef-4555-497d-9389-7bd1ba6e1540.png)
 
 <br>
 

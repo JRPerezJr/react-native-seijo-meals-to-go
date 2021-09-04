@@ -1,4 +1,4 @@
-<h1 align="center">Seijo Meals To Go 👋</h1>
+<h1 align="center">Seijo Meals To Go</h1>
 
 ![seijo-landing](https://user-images.githubusercontent.com/19915910/132099478-cf9f43ef-4555-497d-9389-7bd1ba6e1540.png)
 
